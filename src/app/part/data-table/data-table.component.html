@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <thead>
+        <th *ngFor="let col of cols">{{ col.text }}</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of list">
+            <td *ngFor="let col of cols">
+                <app-data-cell [cellValue]="row[col.key]" [col]="col"></app-data-cell>
+            </td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-info" (click)="onUpdate(list[0].id)">
+                        <i class="fa fa-pencil"></i>
+                    </button>
+                    <button class="btn btn-danger">
+                        <i [class]="deleteIconClass"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
